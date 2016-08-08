@@ -8,9 +8,9 @@
     "start": "electron main.js"
   },
   "repository": {
-   "type": "git",
-   "url": "git+https://github.com/felizalde/SLRAlgorithm.git"
-   },
+    "type": "git",
+    "url": "git+https://github.com/felizalde/clustering-market.git"
+  },
   "author": "Federico Elizalde",
   "license": "MIT",
   "devDependencies": {
@@ -21,6 +21,7 @@
     "browserify": "^13.0.1"
   },
   "dependencies": {
+    "history": "^2.0.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-loading": "0.0.9",

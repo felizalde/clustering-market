@@ -1,0 +1,13 @@
+.form-control-own {
+  max-width:30%;
+  margin:auto;
+}
+
+.pane-md {
+	max-width:280px;
+	min-width:150px
+}
+
+.item-border {
+  border-bottom: 1px solid #ddd
+}
