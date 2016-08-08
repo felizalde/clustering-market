@@ -1,14 +1,38 @@
 import React from 'react';
+import {connect} from 'react-redux'
+
 
 class TableSales extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  createItemList(items) {
+      return items.map((item) => {
+          return (
+            <li>{item}</li>
+            )
+          })
+  }
+
+  createTableItems() {
+      return this.props.sales.map((sale) =>{
+         return (
+            <tr key={sale.id}>
+                <td>{sale.id}</td>
+                <td>{sale.date}</td>
+                <td>
+                    {this.createItemList(sale.items)}
+                </td>
+            </tr>
+         );
+      });
+  }
+
   render() {
     return (
       <div className="pane">
-           <table className="table-striped">
+           <table>
             <thead>
               <tr>
                 <th>IDSale</th>
@@ -17,6 +41,7 @@ class TableSales extends React.Component {
               </tr>
             </thead>
             <tbody>
+                {this.createTableItems()}
             </tbody>
           </table>
       </div>
@@ -25,4 +50,10 @@ class TableSales extends React.Component {
 
 }
 
-export default TableSales;
+function mapStateToProps(state){
+    return {
+        sales : state.sales
+    };
+}
+
+export default connect(mapStateToProps)(TableSales);
