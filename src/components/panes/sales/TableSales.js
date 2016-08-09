@@ -50,10 +50,11 @@ class TableSales extends React.Component {
 
 }
 
-function mapStateToProps(state){
+function mapStoreToProps(store){
     return {
-        sales : state.sales
+        sales : store.sales.sales,
+        salesFetched: store.sales.fetched,
     };
 }
 
-export default connect(mapStateToProps)(TableSales);
+export default connect(mapStoreToProps)(TableSales);
