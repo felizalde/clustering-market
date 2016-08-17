@@ -32,7 +32,7 @@ class TableSales extends React.Component {
   render() {
     return (
       <div className="pane">
-           <table>
+           <table className="table-striped">
             <thead>
               <tr>
                 <th>IDSale</th>
