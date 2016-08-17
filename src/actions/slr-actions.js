@@ -26,3 +26,17 @@ export function updateThreshold(threshold){
         payload: threshold,
     }
 }
+
+export function calculateClusters(){
+    return function(dispatch) {
+        dispatch({type: 'CALCULATING'});
+
+
+        console.log('call slr algorithm');
+
+
+        window.setTimeout(function(){
+            dispatch({type: 'CALCULATED', payload: []});
+        },3000);
+    }
+}

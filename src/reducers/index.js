@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
 import sales from './sales-reducer'
-import conf from './conf-reducer'
+import slr from './slr-reducer'
 
 export default combineReducers({
     sales,
-    conf,
+    slr,
 });
