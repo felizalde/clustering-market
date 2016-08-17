@@ -22,11 +22,11 @@
   },
   "dependencies": {
     "history": "^2.0.0",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
-    "react-loading": "0.0.9",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
+    "recharts": "^0.13.3",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0"
