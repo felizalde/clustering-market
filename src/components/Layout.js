@@ -1,9 +1,21 @@
-import React from 'react';
-import Header from './Header';
+import React from 'react'
+import Header from './Header'
+import Loading from './panes/Loading'
+import {connect} from 'react-redux'
+
 
 class Layout extends React.Component {
   constructor(props){
     super();
+  }
+
+  renderLoading(){
+      if (this.props.calculating){
+          return (
+              <Loading />
+          );
+      }
+      return (this.props.children);
   }
 
   render() {
@@ -11,11 +23,17 @@ class Layout extends React.Component {
       <div className="window">
         <Header />
         <div className="window-content">
-            {this.props.children}
+            {this.renderLoading()}
         </div>
         </div>
     );
   }
 }
 
-export default Layout;
+function mapStoreToProps(store){
+    return {
+        calculating: store.slr.calculating,
+    };
+}
+
+export default connect(mapStoreToProps)(Layout);
