@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import * as conf from '../../../actions/conf-actions'
+import * as conf from '../../../actions/slr-actions'
 
 class Settings extends React.Component{
   constructor(props) {
@@ -8,16 +8,16 @@ class Settings extends React.Component{
   }
 
   handleChangeClusters(event){
-      this.props.dispatch(conf.updateClusters(event.target.value));
+      this.props.dispatch(conf.updateClusters(parseInt(event.target.value)));
   }
   handleChangeThreshold(event){
-      this.props.dispatch(conf.updateThreshold(event.target.value));
+      this.props.dispatch(conf.updateThreshold(parseFloat(event.target.value)));
   }
   handleChangeSupport(event){
-      this.props.dispatch(conf.updateMaximumSupport(event.target.value));
+      this.props.dispatch(conf.updateMaximumSupport(parseFloat(event.target.value)));
   }
   handleChangeCeiling(event){
-      this.props.dispatch(conf.updateMinimumCeiling(event.target.value));
+      this.props.dispatch(conf.updateMinimumCeiling(parseFloat(event.target.value)));
   }
 
   render() {
@@ -77,10 +77,10 @@ class Settings extends React.Component{
 
 function mapStoreToProps(store){
     return {
-        clusters: store.conf.clusters,
-        support: store.conf.support,
-        threshold: store.conf.threshold,
-        ceiling: store.conf.ceiling,
+        clusters: store.slr.clusters,
+        support: store.slr.support,
+        threshold: store.slr.threshold,
+        ceiling: store.slr.ceiling,
     };
 }
 
