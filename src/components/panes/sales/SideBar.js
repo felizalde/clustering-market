@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-import Actions from './ActionsSB';
-import Settings from './SettingsSB';
+import Actions from './ActionsSB'
+import Settings from './SettingsSB'
 
 import { fetchSales } from '../../../actions/sales-actions'
+import { calculateClusters } from '../../../actions/slr-actions'
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -21,17 +22,18 @@ class SideBar extends React.Component {
   }
 
   calculate(){
-      console.log('calculate')
+      this.props.dispatch(calculateClusters());
+      this.context.router.push('/measures');
   }
 
   render() {
     return (
       <div className="pane-md sidebar">
           <Actions
-              onClickOpenFile = {this.openFile.bind(this)}
-              onClickNewSale = {this.newSale.bind(this)}
-              onClickCalculate = {this.calculate.bind(this)}
-          />
+            onClickOpenFile = {this.openFile.bind(this)}
+            onClickNewSale = {this.newSale.bind(this)}
+            onClickCalculate = {this.calculate.bind(this)}
+            />
           <Settings />
 
         </div>
@@ -40,12 +42,8 @@ class SideBar extends React.Component {
 
 }
 
-function mapStoreToProps(store){
-    return {
-        salesFetching : store.sales.fetching,
-        salesFetched: store.sales.fetched,
-        errorFetching: store.sales.error,
-    };
-}
+SideBar.contextTypes = {
+   router: React.PropTypes.object
+ }
 
-export default connect(mapStoreToProps)(SideBar);
+export default connect()(SideBar)
