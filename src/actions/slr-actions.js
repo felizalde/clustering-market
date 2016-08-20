@@ -1,3 +1,4 @@
+import calculate from '../modules/calculate'
 
 export function updateClusters(number){
     return {
@@ -30,13 +31,12 @@ export function updateThreshold(threshold){
 export function calculateClusters(){
     return function(dispatch) {
         dispatch({type: 'CALCULATING'});
-
-
-        console.log('call slr algorithm');
-
-
-        window.setTimeout(function(){
-            dispatch({type: 'CALCULATED', payload: []});
-        },3000);
+        calculate()
+        .then((result) => {
+            dispatch({type:'CALCULATED', payload: result})
+        })
+        .catch((e) => {
+            console.log('error.')
+        })
     }
 }
