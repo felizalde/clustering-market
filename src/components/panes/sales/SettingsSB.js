@@ -24,12 +24,12 @@ class Settings extends React.Component{
     return (
       <nav className="nav-group">
           <h5 className="nav-group-title item-border">
-            <span className="icon icon-cog icon-text">Settings</span>
+            <span className="icon icon-cog icon-text"> Settings</span>
           </h5>
 
           <form>
             <div className="checkbox">
-              <label>
+              <label className="setting-label">
               <input className="form-control form-control-own"
               type="number" name="clusters" id="clusters"
               min="1" max="10" step="1" value={this.props.clusters}
@@ -39,7 +39,7 @@ class Settings extends React.Component{
             </label>
             </div>
             <div className="checkbox">
-              <label>
+              <label className="setting-label">
             <input className="form-control form-control-own"
             type="number" name="threshold" id="threshold"
             min="0" max="20" step="0.5" value={this.props.threshold}
@@ -49,7 +49,7 @@ class Settings extends React.Component{
             </label>
             </div>
             <div className="checkbox">
-              <label>
+              <label className="setting-label">
             <input className="form-control form-control-own"
             type="number" name="support" id="support"
             min="0" max="1" step="0.1" value={this.props.support}
@@ -59,7 +59,7 @@ class Settings extends React.Component{
             </label>
             </div>
             <div className="checkbox">
-              <label>
+              <label className="setting-label">
             <input className="form-control form-control-own"
             type="number" name="ceiling" id="ceiling"
             min="0" max="1" step="0.1" value={this.props.ceiling}

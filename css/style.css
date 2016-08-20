@@ -1,6 +1,7 @@
 .form-control-own {
-  max-width:30%;
+  max-width: 60px;
   margin:auto;
+  margin-right: 5px;
 }
 
 .pane-md {
@@ -8,16 +9,20 @@
 	min-width:150px
 }
 
-/* https://github.com/tobiasahlin/SpinKit */
+.setting-label {
+    margin-right: 10px;
+}
 
 .item-border {
   border-bottom: 1px solid #ddd
 }
 
+/* https://github.com/tobiasahlin/SpinKit */
+
 .sk-circle {
   margin: 100px auto;
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   position: relative;
 }
 .sk-circle .sk-child {

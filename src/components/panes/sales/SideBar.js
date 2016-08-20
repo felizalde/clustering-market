@@ -23,7 +23,6 @@ class SideBar extends React.Component {
 
   calculate(){
       this.props.dispatch(calculateClusters());
-      this.context.router.push('/measures');
   }
 
   render() {
