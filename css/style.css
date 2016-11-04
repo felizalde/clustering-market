@@ -1,3 +1,6 @@
+
+/* Sales components */
+
 .form-control-own {
   max-width: 60px;
   margin:auto;
@@ -16,6 +19,43 @@
 .item-border {
   border-bottom: 1px solid #ddd
 }
+
+/* Measures components */
+
+.data-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.market-details {
+  background-color: #dcdfe1;
+  position: relative;
+  display: flex;
+  max-height: 16em;
+  flex: auto;
+}
+
+
+.data-details {
+  position: relative;
+  overflow-y: auto;
+  flex: 0.45;
+}
+
+.chart {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.list-clusters {
+  position: relative;
+  background-color: green;
+  overflow-y: auto;
+  flex: 1;
+}
+
 
 /* https://github.com/tobiasahlin/SpinKit */
 
