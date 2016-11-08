@@ -14,7 +14,7 @@ export default function(){
                 const clusters = SLR_ALGORITHM(store.sales.sales, store.slr.support,  store.slr.ceiling, options);
                 window.setTimeout(function(){
                     resolve(clusters);
-                }, 2000);                
+                }, 2000);
             } catch (e) {
                 reject(e);
             }
