@@ -16,7 +16,7 @@ class AlgorithmDetails extends React.Component {
           <div className="padded-horizontally-less">
             <h4>Algorithm settings</h4>
             <p><strong>Clusters:</strong> {_cluster}</p>
-            <p><strong>SL-Ratio:</strong> {_ratio}</p>
+            <p><strong>SLR Threshold:</strong> {_ratio}</p>
             <p><strong>Minimum Support:</strong> {_support}</p>
             <p><strong>Maximum Ceiling:</strong> {_ceiling}</p>
           </div>
