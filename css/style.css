@@ -51,7 +51,6 @@
 
 .list-clusters {
   position: relative;
-  background-color: green;
   overflow-y: auto;
   flex: 1;
 }
