@@ -36,7 +36,7 @@ export function calculateClusters(){
             dispatch({type:'CALCULATED', payload: result})
         })
         .catch((e) => {
-            console.log('error.')
+            console.log("ERROR --> TODO: Mensaje de error.");
         })
     }
 }
