@@ -32,7 +32,7 @@ class Settings extends React.Component{
               <label className="setting-label">
               <input className="form-control form-control-own"
               type="number" name="clusters" id="clusters"
-              min="1" max="10" step="1" value={this.props.clusters}
+              min="1" max="50" step="1" value={this.props.clusters}
               onChange = {this.handleChangeClusters.bind(this)}
               />
               Number of clusters
