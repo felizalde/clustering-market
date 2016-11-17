@@ -1,3 +1,5 @@
+const MAXCOST = Number.MAX_VALUE;
+
 export class Cluster{
     constructor(id){
         this.id = id;
@@ -112,13 +114,13 @@ const Cost = (clustering, S, E) => {
 }
 
 const allocate = (transaction, S, E) => {
-    let minCost = 1000;
+    let minCost = MAXCOST;
     let partialCost = 0;
     let toAllocate;
     for (let c of clusters){
         c.add(transaction);
         partialCost = Cost(clusters, S, E);
-        console.log(partialCost)
+        console.log(partialCost);
         if (minCost > partialCost){
             minCost = partialCost;
             toAllocate = c;
@@ -130,7 +132,6 @@ const allocate = (transaction, S, E) => {
         c.add(transaction);
         clusters.push(c);
     }else{
-        console.log(toAllocate.id);
         toAllocate.add(transaction);
     }
 }
@@ -166,7 +167,7 @@ const refinement = (clustering, S, E) => {
             let minSLR = 1000;
             let candidate;
             for (let c of clustering){
-                if (( !history.has(t.id))||(history.get(t.id) != c.id)){
+                if ((!history.has(t.id))||(history.get(t.id) != c.id)){
                     c.add(t);
                     const ratio = SL_Ratio(c.support, c.getSize(), t.items, E, S);
                     if (ratio < minSLR){
@@ -176,7 +177,6 @@ const refinement = (clustering, S, E) => {
                     c.pop();
                 }
             }
-            console.log("min: " + minSLR);
             if (minSLR < configuration.THRESHOLD){
 
                 candidate.add(t);
@@ -185,7 +185,6 @@ const refinement = (clustering, S, E) => {
                 not_moved = true;
             }
         }
-        console.log('....');
         history = new Map();
         count++;
     } while(not_moved);
@@ -195,15 +194,15 @@ const refinement = (clustering, S, E) => {
 }
 
 
-const SL_Ratio = (support, cant, items, E, S)=>{
+const SL_Ratio = (support, cant, items, E, S) => {
     let small = 0;
     let large = 0;
     for(const i of items){
         const supItem = support.get(i)/cant;
-        if (supItem<E){
+        if (supItem < E){
             small += 1;
         }
-        if (supItem>S){
+        if (supItem > S){
             large += 1;
         }
     }
@@ -231,17 +230,21 @@ let configuration = {
  * @return Return a clustering such that the total cost is minimized.
  */
 
-const SLR_ALGORITHM = (transactions, S, E, options) => {
+export function slrAlgorithm(transactions, S, E, options) {
+    clusters = [];
     if (options !== undefined ) {
         configuration = options;
     }
+
+    let items = 0;
     for(let t of transactions){
+        items += t.items.length;
         allocate(t, S, E);
     }
+
+    console.log('Promedio de items/transactions : ' + (items/transactions.length));
+
     refinement(clusters, S, E);
 
     return clusters;
 }
-
-
-export {SLR_ALGORITHM};
