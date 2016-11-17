@@ -3,6 +3,9 @@ const initialState = {
     fetched: false,
     fetching: false,
     error: null,
+    size: 0,
+    itemsSize: 0,
+    name: '',
 };
 
 export default function reducer(state=initialState, action) {
@@ -22,7 +25,10 @@ export default function reducer(state=initialState, action) {
             return Object.assign({}, state,{
                 fetching: false,
                 fetched: true,
-                sales: action.payload
+                sales: action.payload.sales,
+                size: action.payload.size,
+                itemsSize: action.payload.itemsSize,
+                name: action.payload.name,
             })
             break;
     }

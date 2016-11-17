@@ -27,16 +27,18 @@ class Measures extends React.Component {
   render() {
     if (!this.props.algorithmData.calculated) {
        return (
-         <div>No se ha calculado..</div>
+         <div className="not-calculate">
+           <h2><i>No se ha calculado..</i></h2>
+         </div>
        );
     }
     return (
       <div className="data-content">
         <div className="market-details">
           <FileDetails
-            filename = "Pepe"
-            sales = {160}
-            items = {130}
+            filename = {this.props.salesData.name}
+            sales = {this.props.salesData.size}
+            items = {this.props.salesData.itemsSize}
           />
           <AlgorithmDetails
             clusters = {this.props.algorithmData.clusters}
@@ -60,7 +62,8 @@ class Measures extends React.Component {
 
 function mapStoreToProps(store) {
   return {
-    algorithmData : store.slr
+    algorithmData : store.slr,
+    salesData: store.sales
   };
 }
 
