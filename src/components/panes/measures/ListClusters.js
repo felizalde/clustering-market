@@ -12,6 +12,9 @@ function generateFreq(map){
         'freq': value,
       });
     });
+    freq.sort((a, b) => {
+      return (b.freq - a.freq);
+    });
     return freq;
   }
 
