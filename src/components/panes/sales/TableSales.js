@@ -8,9 +8,9 @@ class TableSales extends React.Component {
   }
 
   createItemList(items) {
-      return items.map((item) => {
+      return items.map((item, index) => {
           return (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
             )
           })
   }
