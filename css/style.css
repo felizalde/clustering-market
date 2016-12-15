@@ -184,6 +184,12 @@
   position: relative;
   overflow-y: auto;
   flex: 1;
+  display: flex;
+}
+
+.result-weighted {
+  position: relative;
+  flex: auto;
 }
 
 
