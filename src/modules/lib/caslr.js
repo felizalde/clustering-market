@@ -78,6 +78,18 @@ export class Cluster{
 
     }
 
+    mediumI(S, E) {
+      let out = new Set();
+      for (const entry of this.support.entries()){
+        let prob = (entry[1]/this.transactions.length)
+          if ((prob < S ) && (prob > E)){
+              out.add(entry[0]);
+          }
+      }
+      return out;
+
+    }
+
     getItemsSize(){
         let acc = 0;
         for(const t of this.transactions){

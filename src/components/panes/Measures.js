@@ -4,7 +4,7 @@ import AlgorithmDetails from './measures/AlgorithmDetails'
 import FileDetails from './measures/FileDetails'
 import Chart from './measures/Chart'
 import ListClusters from './measures/ListClusters'
-
+import ResultWeighted from './measures/ResultWeighted'
 
 class Measures extends React.Component {
   constructor(props) {
@@ -54,6 +54,12 @@ class Measures extends React.Component {
             <ListClusters
               clusters = {this.props.algorithmData.clustering}
             />
+            <ResultWeighted
+              sales = {this.props.salesData.sales}
+              clusters = {this.props.algorithmData.clustering}
+              ceiling = {this.props.algorithmData.ceiling}
+              support = {this.props.algorithmData.support}
+              />
           </div>
         </div>
     )

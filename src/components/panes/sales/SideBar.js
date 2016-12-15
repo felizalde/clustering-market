@@ -17,10 +17,6 @@ class SideBar extends React.Component {
       this.props.dispatch(fetchSales());
   }
 
-  newSale(){
-      console.log('new-sale')
-  }
-
   calculate(){
       this.props.dispatch(calculateClusters());
   }
@@ -30,9 +26,9 @@ class SideBar extends React.Component {
       <div className="pane-md sidebar">
           <Actions
             onClickOpenFile = {this.openFile.bind(this)}
-            onClickNewSale = {this.newSale.bind(this)}
             onClickCalculate = {this.calculate.bind(this)}
             />
+          <br />
           <Settings />
 
         </div>
